@@ -61,8 +61,8 @@ data "template_file" "userdata" {
     var.worker_groups[count.index],
     "userdata_template_file",
     file(
-      lookup(var.worker_groups[count.index], "platform", local.workers_group_defaults["platform"]) == "windows"
-      ? "${path.module}/templates/userdata_windows.tpl"
+      lookup(var.worker_groups[count.index], "platform", local.workers_group_defaults["platform"]) == "patched"
+      ? "${path.module}/templates/userdata_patched.tpl"
       : "${path.module}/templates/userdata.sh.tpl"
     )
   )
