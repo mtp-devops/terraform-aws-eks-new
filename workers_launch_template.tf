@@ -12,6 +12,11 @@ resource "aws_autoscaling_group" "workers_launch_template" {
       ]
     )
   )
+  capacity_rebalance = lookup(
+    var.worker_groups_launch_template[count.index],
+    "capacity_rebalance",
+    null,
+  )
   desired_capacity = lookup(
     var.worker_groups_launch_template[count.index],
     "asg_desired_capacity",
