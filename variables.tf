@@ -369,3 +369,15 @@ variable "fargate_pod_execution_role_name" {
   type        = string
   default     = null
 }
+
+variable "root_kms_key_id" {
+  description = "root_kms_key_id"
+  type        = string
+  default     = null
+}
+
+variable "root_encrypted" {
+  description = "root_encrypted"
+  type        = bool
+  default     = false
+}
